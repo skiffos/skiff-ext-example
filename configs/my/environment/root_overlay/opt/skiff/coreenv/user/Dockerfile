@@ -15,6 +15,7 @@ RUN apt-get update && \
   vim \
   rsync \
   build-essential \
+  lsb-release \
   systemd \
   mosh \
   usbutils \
@@ -23,9 +24,24 @@ RUN apt-get update && \
   htop \
   nano \
   net-tools \
+  software-properties-common \
   unzip \
   autotools-dev \
   wget && \
+  apt-get autoremove -y && \
+  rm -rf /var/lib/apt/lists/*
+
+# Add docker in docker
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg |\
+  sudo apt-key add - && \
+  sudo add-apt-repository -y \
+    "deb https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
+  apt-get update && \
+  apt-get install -y \
+  docker-ce \
+  docker-ce-cli \
+  containerd.io && \
+  systemctl enable docker && \
   apt-get autoremove -y && \
   rm -rf /var/lib/apt/lists/*
 
