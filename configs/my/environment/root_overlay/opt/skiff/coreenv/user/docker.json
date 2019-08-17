@@ -1,0 +1,4 @@
+{
+        "storage-driver": "overlay2",
+        "graph": "/mnt/persist/core-docker/"
+}

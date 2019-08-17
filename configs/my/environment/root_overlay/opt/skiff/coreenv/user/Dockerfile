@@ -81,6 +81,7 @@ RUN systemctl set-default multi-user.target && \
          -exec rm \{} \;
 
 ADD ./fstab /etc/fstab
+ADD ./docker.json /etc/docker/daemon.json
 
 WORKDIR /home/core
 VOLUME ["/sys/fs/cgroup", "/tmp", "/run", "/run/lock"]
