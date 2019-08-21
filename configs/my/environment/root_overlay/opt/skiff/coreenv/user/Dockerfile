@@ -22,6 +22,7 @@ RUN apt-get update && \
   sudo \
   curl \
   htop \
+  less \
   nano \
   net-tools \
   software-properties-common \
