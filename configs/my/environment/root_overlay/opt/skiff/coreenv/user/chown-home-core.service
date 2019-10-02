@@ -1,0 +1,12 @@
+[Unit]
+Description=Chown core home permissions
+DefaultDependencies=no
+Requires=home-core.mount
+After=home-core.mount
+
+[Service]
+Type=oneshot
+ExecStart=/opt/skiff-core/scripts/chown-home.sh core
+
+[Install]
+WantedBy=multi-user.target

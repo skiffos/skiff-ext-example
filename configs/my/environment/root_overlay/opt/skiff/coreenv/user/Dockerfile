@@ -48,6 +48,7 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg |\
 
 # Create the user 'core' which will be the usual userspace account
 # Also allow core to run stuff as sudo without a password.
+ADD ./chown-home.sh /opt/skiff-core/scripts/chown-home.sh
 RUN \
   adduser core \
   --no-create-home \
@@ -60,9 +61,12 @@ RUN \
   adduser core plugdev && \
   mkdir -p /home/core/ && \
   chown core:core /home/core && \
+  chmod +x /opt/skiff-core/scripts/chown-home.sh && \
   echo "core    ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
+ADD ./chown-home-core.service /etc/systemd/system
 RUN systemctl set-default multi-user.target && \
+    systemctl enable chown-home-core.service && \
     systemctl mask tmp.mount && \
     find /etc/systemd/system \
          /lib/systemd/system \
