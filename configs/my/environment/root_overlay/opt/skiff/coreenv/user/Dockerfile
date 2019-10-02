@@ -64,9 +64,9 @@ RUN \
   chmod +x /opt/skiff-core/scripts/chown-home.sh && \
   echo "core    ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-ADD ./chown-home-core.service /etc/systemd/system
+ADD ./init-home-core.service /etc/systemd/system
 RUN systemctl set-default multi-user.target && \
-    systemctl enable chown-home-core.service && \
+    systemctl enable init-home-core.service && \
     systemctl mask tmp.mount && \
     find /etc/systemd/system \
          /lib/systemd/system \
