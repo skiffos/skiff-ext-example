@@ -16,12 +16,12 @@ if [ -z "$SSHSTR" ]; then
 fi
 
 SKIFF_WORKSPACE=${SKIFF_WORKSPACE:-default}
-if [ ! -d ./skiff ]; then
+if [ ! -d ./skiffos ]; then
     usage
     echo "please run from the root dir: ./scripts/push_image.sh"
     exit 1
 fi
-WS="./skiff/workspaces/${SKIFF_WORKSPACE}/images"
+WS="./skiffos/workspaces/${SKIFF_WORKSPACE}/images"
 if [ ! -d $WS ]; then
     echo "Could not find: $WS"
     exit 1
