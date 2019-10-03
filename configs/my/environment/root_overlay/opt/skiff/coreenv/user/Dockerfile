@@ -48,7 +48,7 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg |\
 
 # Create the user 'core' which will be the usual userspace account
 # Also allow core to run stuff as sudo without a password.
-ADD ./chown-home.sh /opt/skiff-core/scripts/chown-home.sh
+ADD ./init-home.sh /opt/skiff-core/scripts/init-home.sh
 RUN \
   adduser core \
   --no-create-home \
