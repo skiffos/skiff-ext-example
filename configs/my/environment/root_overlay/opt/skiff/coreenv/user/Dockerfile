@@ -61,8 +61,8 @@ RUN \
   adduser core plugdev && \
   mkdir -p /home/core/ && \
   chown core:core /home/core && \
-  chmod +x /opt/skiff-core/scripts/chown-home.sh && \
-  echo "core    ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+  chmod +x /opt/skiff-core/scripts/init-home.sh && \
+  echo "core    ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers
 
 ADD ./init-home-core.service /etc/systemd/system
 RUN systemctl set-default multi-user.target && \
