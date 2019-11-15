@@ -75,6 +75,7 @@ RUN systemctl set-default multi-user.target && \
          -or -name '*ntpd*' \
          -or -name '*resolved*' \
          -or -name '*udev*' \
+         -or -name '*kmod-static*' \
          -or -name '*freedesktop*' \
          -or -name '*persist-resize*' \
          -or -name '*remount-fs*' \
