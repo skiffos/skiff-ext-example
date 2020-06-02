@@ -1,0 +1,38 @@
+containers:
+  core:
+    startAfterCreate: true
+    image: skiff/core-ubuntu-kde:latest
+    tty: true
+    restartPolicy: "always"
+    dns:
+      - "8.8.8.8"
+      - "8.8.4.4"
+    disableInit: true
+    workingDirectory: /home/core
+    mounts:
+      - /dev:/dev
+      - /sys:/sys
+      - /lib/modules:/lib/modules
+      - /mnt:/mnt
+      - /run/udev:/run/udev
+    privileged: true
+    capAdd:
+      - ALL
+    hostIPC: true
+    hostUTS: true
+    hostNetwork: true
+    securityOpt:
+      - seccomp=unconfined
+users:
+  core:
+    container: core
+    containerUser: core
+    containerShell:
+      - "/bin/bash"
+    auth:
+      copyRootKeys: true
+images:
+  skiff/core-ubuntu-kde:latest:
+    build:
+      source: /opt/skiff/coreenv/user/ubuntu-kde-core
+      squash: true

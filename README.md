@@ -21,7 +21,7 @@ make # this will print help!
 As a basic example:
 
 ```sh
-export SKIFF_CONFIG=virt/docker,my/environment
+export SKIFF_CONFIG=virt/docker,coreenv/ubuntu
 export SKIFF_WORKSPACE=docker
 make configure compile
 make cmd/virt/docker/buildimage
@@ -32,3 +32,14 @@ su - core
 # entered core user shell
 ```
 
+## Ubuntu Core
+
+The configuration at `coreenv/ubuntu` provides:
+
+ - Systemd inside container
+ - Udev inside container
+ - Full desktop environment
+ - X11
+ - KDE Plasma
+
+A gentoo-based core is also possible and will be added to this repo soon.
