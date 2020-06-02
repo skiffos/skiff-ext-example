@@ -32,9 +32,9 @@ su - core
 # entered core user shell
 ```
 
-## Ubuntu Core
+## Ubuntu Core with KDE Plasma
 
-The configuration at `coreenv/ubuntu` provides:
+The configuration at `coreenv/ubuntukde` provides:
 
  - Systemd inside container
  - Udev inside container

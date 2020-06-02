@@ -1,7 +1,7 @@
 containers:
   core:
     startAfterCreate: true
-    image: skiff/core-ubuntu-basic:latest
+    image: skiff/core-ubuntu-kde:latest
     tty: true
     restartPolicy: "always"
     dns:
@@ -32,7 +32,7 @@ users:
     auth:
       copyRootKeys: true
 images:
-  skiff/core-ubuntu-basic:latest:
+  skiff/core-ubuntu-kde:latest:
     build:
-      source: /opt/skiff/coreenv/user/ubuntu-basic-core
+      source: /opt/skiff/coreenv/user/ubuntu-kde-core
       squash: true
